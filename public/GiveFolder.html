@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request-Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color:#333;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            max-width: 450px;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 0px;
+            margin-left:400px;
+            margin-bottom: 1px;
+            box-shadow: inset 2px 4px 12px saddlebrown,
+          9px 9px 5px 4px rosybrown;
+          box-shadow: 9px 6px 800px olive
+        
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color:green;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .form-container label {
+            font-weight: bold;
+            color:black;
+            font-style: oblique;
+            font-family: cursive;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="tel"],
+        .form-container input[type="datetime-local"],
+        .form-container input[type="radio"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .form-container button[type="submit"] {
+            background-color:burlywood;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button[type="submit"]:hover {
+            background-color:#333;
+        }
+
+        /* Animation for the form container */
+        .form-container {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h2{
+            font-weight: bolder;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h2 :hover{
+            transform:scale(1.5);
+            color:#333
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="form-container">
+            <h2>REQUEST-DOCUMENT</h2>
+            <form id="GiveDoc" action="/given" method="POST">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input name="fname" type="text" class="form-control" id="fname" required>
+                    <label for="lname">Last Name</label>
+                    <input name="lname" type="text" class="form-control" id="lname" required>
+                    <label for="phone">Phone</label>
+                    <input name="phone" type="tel" class="form-control" id="phone" required>
+                    <label for="department">Department</label>
+                    <input type="text" name="department" class="form-control" id="department" required>
+                    <label for="RequestedDocumentName">Requested Document</label>
+                    <input type="text" name="RequestedDocumentName" class="form-control" id="RequestedDocumentName" required>
+                    <label for="mezgebkuter">Mezgeb-Kuter </label>
+                    <input type="text" id="mezgebkuter" name="mezgebkuter">
+                    <label for="csoname">CSO-Name</label>
+                    <input type="text" id="csoname" name="csoname">
+                    <label for="DateRequested">Requested Date</label>
+                    <input type="datetime-local" name="DateRequested" class="form-control" id="DateRequested" required>
+                  </div>
+          
+                    <label>Status:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status" value="Given" id="status" required>
+                        <label class="form-check-label" for="status">Given</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+   
+</body>
+</html>

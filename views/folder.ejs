@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mezgeb-Bet</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <center><h1 style="color: chocolate;">Mezgeb-Bet</h1></center>
+        <div class="input-group mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by mezgebkuter or fname">
+            <button id="searchBtn" class="btn btn-primary">Search</button>
+        </div>
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th> 
+                    <th scope="col">FolderName</th>
+                    <th scope="col">Mezgeb-Kuter</th>
+                    <th scope="col">Cso-Name</th>
+                    <th scope="col">NoOfPage</th>
+                    <th scope="col">YearOfFolder</th>
+                    <th scope="col">Owner</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                
+                <% r = 1 %>
+                <% if (folderlist.length > 0) { %>
+                    <% folderlist.forEach((folderhandler) => { %>
+                        <tr>
+                            <td><%= r++ %></td>
+                            <td><%= folderhandler.FolderName %></td>
+                            <td><%= folderhandler.mezgebkuter %></td>
+                            <td><%= folderhandler.csoname %></td>
+                            <td><%= folderhandler.NoOfPage %></td>
+                            <td><%= folderhandler.YearOfFolder %></td>
+                            <td><%= folderhandler.Owner %></td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="7">No given document found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <script>
+      
+
+        const searchBtn = document.getElementById("searchBtn");
+        const searchInput = document.getElementById("searchInput");
+        const tableBody = document.getElementById("tableBody");
+
+        searchBtn.addEventListener("click", async () => {
+            const searchValue = searchInput.value.trim();
+            if (searchValue !== "") {
+                try {
+                    const response = await fetch(`http://localhost:7084/search?value=${searchValue}`);
+                    const users = await response.json();
+                    displayUsers(users);
+                } catch (error) {
+                    console.error("An error occurred while searching for users:", error);
+                }
+            }
+        });
+
+        function displayUsers(users) {
+            tableBody.innerHTML ="";
+            if (users.length > 0) {
+                users.forEach((user, index) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${user.FolderName}</td>
+                        <td>${user.mezgebkuter}</td>
+                        <td>${user.csoname}</td>
+                        <td>${user.NoOfPage}</td>
+                        <td>${user.YearOfFolder}</td>
+                        <td>${user.Owner}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td colspan="7">No search results found.</td>`;
+                tableBody.appendChild(row);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD-NEW_DOCUMENT</title>
+</head>
+<style>
+*{
+    padding: 0%;
+    margin: 0;
+  
+}
+body{
+    background-color:black;
+    background-image: url(ground.jpeg);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.addfolder{
+    position: absolute;
+    top:40%;
+    left:50%;
+    right:50px;
+    transform:translate(-50%,-50%);
+    width:400px;
+    box-shadow: inset 10px  10px 20px 10px khaki;
+    
+}
+.addfolder h2{
+    font-size: 30px;
+    text-align:center;
+    text-transform: uppercase;
+    margin-left: 45px;
+    color:bisque;
+}
+.addfolder h2:hover{
+    color:grey;
+    transform: scale(1.05);
+}
+.addfolder label{
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: bold;
+    flex-direction: column;
+    font-style: italic;
+    margin:6px;
+    
+
+}
+.addfolder label:hover{
+    color:cornflowerblue;
+    transform:scale(1.1);
+}
+.addfolder input{
+     font-size: 16px;
+     padding:15px 10px;
+     width:100%;
+     border:0;
+     border-radius: 5px;
+     outline:none;
+}
+.addfolder button{
+    font-size: 19px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding:15px 10px;
+    width:50%;
+    border:0;
+    border-radius:5px;
+    background-color: #fff;
+}
+.addfolder button:hover{
+    transform: scale(1.06);
+    color:goldenrod;
+}
+
+ 
+
+.form input{
+    width: 350px;
+    margin-left: 7px;
+    margin-right: 0%;
+   
+}
+
+.form{
+    box-sizing: border-box;
+    height: 400px;
+    width:400px;
+    border: 2px solid rgb(82, 50, 66);
+    border-radius: 20px;
+    margin-top: 15px;
+    
+    margin-right: 900px;
+
+}
+.form button{
+    margin-left: 50px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+.form label{
+    margin-left: 4px;
+    font-weight: bold;
+    font-style: oblique;
+    font-size:large;
+    color:wheat;
+    padding: 25px;
+
+}
+.acso{
+    
+    font-size:small ;
+    width: 400px;
+
+    height:100px;
+}
+.acsoo{
+    
+    width:400px;
+    height:100px;
+    margin-left: 400px;
+}
+.addfolder{
+    margin-right: 400px;
+}
+@keyframes acso-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+        transform: translateY(0);
+        
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+        transform: translateY(-50px);
+        transform: translateX(-80px);
+       
+        filter: hue-rotate(180deg);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+        transform: translateY(0);
+        
+        filter: hue-rotate(0deg);
+    }
+}
+.acso-image {
+    animation: acso-animation 5s ease-in-out infinite; 
+}
+
+</style>
+<body>
+<div class="addfolder">
+    <h2>ADD-DOCUMENT</h2>
+    <div class="form">
+    <form id="folder" action="/add" method="POST">
+        <label for="FolderName">FolderName</label>
+        <input type="text" id="FolderName" name="FolderName"><br/>
+        <label for="mezgebkuter">Mezgeb-Kuter</label>
+        <input type="text" id="mezgebkuter" name="mezgebkuter"><br/>
+        <label for="csoname">Cso-Name</label>
+        <input type="text" id="csoname" name="csoname"><br/>
+        <label  for="NoOfPage">No-Of-Pages</label>
+        <input type="number" id="NoOfPage" name="NoOfPage"><br/>
+        <label for="YearOfFolder">Year-Of-Folder</label>
+        <input type="datetime-local" id="YearOfFolder" name="YearOfFolder"><br/>
+        <label for="Owner">Owner-of-Folder</label>
+        <input type="text" id="Owner" name="Owner"><br/>
+        <button type="submit">ADD-DOCUMENT</button>
+    </form>
+</div>
+</div>  
+<div class="acso-image">
+<img src="acso.jpeg" class="acso">
+<img src="acso.jpeg" class="acsoo">
+</div>
+</body>
+
+</html>

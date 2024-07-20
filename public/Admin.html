@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-page</title>
+    <link rel="stylesheet" href="Loginstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+body {
+    background-color:dimgray;
+}
+
+header {
+    text-align: center;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: large;
+}
+
+.whole {
+    box-sizing: border-box;
+    height: 400px;
+    width: 400px;
+    border: 4px solid black;
+    border-radius: 15px;
+    margin-top: 25px;
+    margin-left: 500px;
+    padding:10px;
+    box-shadow: 9px 6px 800px salmon;
+
+}
+ h2{
+    text-align:center;
+    font-style: italic;
+    font-weight: bolder;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:xx-large;
+
+}
+h2:hover{
+    transform:scale(1.1);
+    color:cadetblue;
+}
+
+  
+
+.whole button:hover {
+    background-color:cadetblue; /* Darken the button background on hover */
+    transform: scale(1.05);
+}
+.container{
+display: flex;
+column-gap: 20px;
+border-radius:35px;
+overflow: hidden;
+background-color:darkseagreen;
+}
+.container:hover{
+    background-color:darkslategrey;
+    transform:scale(1);
+}
+
+.civil {
+  margin-right: 10px;
+  width: 45%; /* Adjust width as needed */
+}
+
+.buttens {
+  margin-left: 10px;
+  width: 45%; /* Adjust width as needed */
+}
+.civil {
+  padding-right: 20px;
+}
+
+.buttens {
+  padding-left: 20px;
+}
+
+
+.civil,
+.buttens {
+  flex: 1; 
+  padding: 10px; 
+}
+.whole {
+  margin: 0; 
+  padding: 10px; 
+  box-sizing: border-box;
+    height: 400px;
+    width: 400px;
+    border: 4px solid black;
+    border-radius: 15px;
+    
+    box-shadow: 9px 6px 800px salmon;
+}
+
+.whole button {
+
+  margin: 0;
+  width: 100%; 
+    width: 350px;
+    color: white;
+    background-color: black;
+    height: 55px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+ 
+ @keyframes acso-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+        transform: translateY(0);
+        
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+        transform: translateY(-5px);
+        transform: translateX(-5px);
+       
+        filter: hue-rotate(180deg);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+        transform: translateY(0);
+        
+        filter: hue-rotate(0deg);
+    }
+}
+.civil p  {
+    opacity: 0; 
+    animation: fadeIn 5s ease-in-out forwards; 
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
+
+
+
+.acso-image {
+    animation: acso-animation 5s ease-in-out infinite; 
+}
+.civil h1 {
+    color: cadetblue;
+    transform-origin: center;
+    transform: translateX( 0) rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+    animation: rotateAnimation 5s infinite alternate; /* Adjust animation duration and other properties as needed */
+}
+
+@keyframes rotateAnimation {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    50%{
+        transform: translateX(20px) rotate(45deg)
+    }
+    100% {
+        transform:  translateX(0) rotate(360deg); /* Adjust the rotation angle as needed */
+    }
+}
+
+.civil h1:hover {
+    animation-play-state: paused; /* Pause the animation on hover if desired */
+}
+ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Style the list items */
+        ul li {
+            margin-bottom: 10px;
+            display: inline;
+        }
+
+        /* Style the icons */
+        i {
+            font-size: 50px; /* Adjust the size as needed */
+            margin-right: 150px;
+            margin-left: 150px; /* Add spacing between icon and text */
+        }
+
+        /* Style the links */
+        a {
+            text-decoration: none;
+            color:darkseagreen /* Change the link color */
+        }
+
+        /* Hover effect for links */
+        a:hover {
+            
+                color: #007bff; }
+
+  .social{
+    margin-left: 200px;
+  }
+
+ </style>
+</head>
+
+<body >
+<div class="container">
+    <div class="civil">
+      <img src="acso.jpeg" class="acso-image">
+    <h1>The Authority  for Civil Society Organization(ACSO)</h1>
+        <p> The ACSO is a national body established to oversee civil society organizations and their activities.
+        
+        It Create a conducive environment for the full-exercise of freedom of association in accordance with the stipulations of the FDRE Constitution and international agreements ratified by Ethiopia;
+        
+        The organization also Ensure maximum public benefit by supervising organizations carry out their activities in accordance with their registered objectives;
+        
+         It also Build CSO capacity to achieve their set goals and objectives efficiently.
+        
+         And Foster a culture of philanthropy and volunteerism in the society;</p>
+         </div>
+    <div class="buttens">
+     <h2>WELCOME TO THE ADMIN-PAGE</h2>
+      <div class="whole">
+    <a href="http://localhost:9650/">
+        <button>Add-New-Document</button><br/>
+    </a>
+    <a href="http://localhost:9979/">
+        <button>Request-Document</button> <br/>
+    </a>
+    <a href="http://localhost:9550">
+        <button>Return-Document</button><br/>
+    </a>
+     <a href="http://localhost:9800/">
+        <button> Given-Documents </button><br/>
+     </a> 
+    <a href="http://localhost:9492/">
+        <button>Returned-Documents</button><br/>
+    </a>
+    <a href="http://localhost:7084/">
+        <button>MEZGEB-BET</button>
+    </a>
+  </div>
+  </div>
+</div>
+<h1 class="social">Socialize</h1>
+<div>
+    <ul>
+        <li>
+            <a href="https://www.facebook.com/people/%E1%8B%A8%E1%88%B2%E1%89%AA%E1%88%8D-%E1%88%9B%E1%8A%85%E1%89%A0%E1%88%A8%E1%88%B0%E1%89%A5-%E1%8B%B5%E1%88%AD%E1%8C%85%E1%89%B6%E1%89%BD-%E1%89%A3%E1%88%88%E1%88%B5%E1%88%8D%E1%8C%A3%E1%8A%95/100067350582423/">
+                <i class="fab fa-facebook-square"></i> 
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/fantaye-kumssa-4a850235/?originalSubdomain=et">
+                <i class="fab fa-linkedin"></i> 
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=46czERu4gIQ">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>

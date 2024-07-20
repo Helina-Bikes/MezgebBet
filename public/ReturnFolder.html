@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETURN-DOCUMENT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+   
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color:darkslategrey;
+    }
+    
+    .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+        text-align: center;
+        color:darkolivegreen;
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bolder;
+    }
+    
+    label {
+        font-weight: bold;
+        color: #222;
+    }
+    
+    input[type="text"],
+    input[type="datetime-local"]
+     {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+    }
+    
+    input[type="text"]:focus,
+    input[type="datetime-local"]:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+    
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+    
+    button[type="submit"] {
+        background-color:cadetblue;
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    button[type="submit"]:hover {
+        background-color:burlywood;
+    }
+
+    /* Animation for the form container */
+    .form-container {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 0.5s forwards;
+        box-shadow: inset 2px 4px 12px saddlebrown,
+          9px 9px 5px 4px rosybrown;
+          box-shadow: 9px 6px 800px olive
+        
+        }
+    
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+<body>
+    <div class="container mt-5">
+        <div class="form-container">
+            <h2>RETURN DOCUMENT</h2>
+            <form id="submit" action="/return" method="POST">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" name="fname" class="form-control" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="ReturnedDocumentName">Returned Document Name</label>
+                    <input type="text" id="ReturnedDocumentName" name="ReturnedDocumentName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="mezgebkuter">Mezgeb-Kuter</label>
+                    <input type="text" id="mezgebkuter" name="mezgebkuter" class="mezgebkuter" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="csoname">CSO-Name</label>
+                    <input type="text" id="csoname" name="csoname" class="csoname" required>   
+                </div>
+                <div class="form-group">
+                    <label for="DateReturned">Returned Date</label>
+                    <input type="datetime-local" id="DateReturned" name="DateReturned" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Status:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status" value="Returned" id="status" required>
+                        <label class="form-check-label" for="status">Returned</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+</style>

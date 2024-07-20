@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returned_Documents</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          line-height: 1;
+          margin: 0;
+          padding: 0;
+      }
+
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      th, td {
+          padding: 8px;
+          text-align: center;
+          border-bottom: 1px solid #666;
+      }
+
+      th {
+          background-color:darkcyan;
+      }
+
+      tr:nth-child(even) {
+          background-color:bisque;
+      }
+      tr:nth-child(odd){
+        background-color: darkgrey;
+      }
+
+      tr:hover {
+          background-color: #e6f7ff;
+      }   
+      p {  
+
+          font-size: 7px;
+          font-weight: bolder;
+          margin: 10px 0;
+          font-family:Georgia, 'Times New Roman', Times, serif;}
+
+     
+      td:last-child {
+          text-align: center;
+      }
+
+     
+      .warning {
+          background-color: #ffdddd;
+          color: #f00;
+          text-align: center;
+      }
+
+      
+      td, th {
+          padding: 10px;
+      }
+  </style>
+</head>
+<body>  
+    <div class="container mt-5">
+    <center><h1>Returned Documents</h1></center>
+    <div class="input-group mb-3">
+    <input type="text" id="searchInput" placeholder="Search by First Name or mezgebkuter ">
+    <button id="searchBtn" >Search</button>
+</div>
+    
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col"> Number</th>
+            <th scope="col">First-Name </th>
+            <th scope="col">Last-Name </th>
+            <th scope="col">Returned-Document-Name </th>
+            <th scope="col">Mezgeb-Kuter</th>
+            <th scope="col"> Cso-Name</th>
+            <th scope="col">Date-Returned</th>
+            <th scope="col"> Status</th>
+        </tr>
+      </thead>
+      <tbody class="tableBody">
+       
+       <%= r = 1 %>
+       <% if(returnlist.length>0){%>
+            <% returnlist.forEach((folderhandler) => { %>
+           <tr>
+            <td><%= r++ %></td>
+           
+           <td><%=folderhandler.fname %></td>
+           <td><%= folderhandler.lname %></td>
+           <td><%= folderhandler.ReturnedDocumentName %></td>
+           <td><%=folderhandler.mezgebkuter %></td>
+           <td><%=folderhandler.csoname %></td>
+           <td><%= folderhandler.DateReturned %></td>
+           <td><%= folderhandler.status %></td>
+       </tr>
+   <% }); %>
+   <% }  else {%>
+    <tr>
+        <td colspan="7">No given document found</td>
+    </tr>
+<% } %>
+      </tbody>
+    </table>
+</div>   
+<script>
+        
+        const searchBtn = document.getElementById("searchBtn");
+                const searchInput = document.getElementById("searchInput");
+                const tableBody = document.querySelector(".tableBody");
+               
+                searchBtn.addEventListener("click", async () => {
+                    const searchValue = searchInput.value.trim();
+                    if (searchValue !== "") {
+                        try {
+                            const response = await fetch(`http://localhost:9492/search?value=${searchValue}`);
+                            const users = await response.json();
+                            displayUsers(users);
+                        } catch (error) {
+                            console.error("An error occurred while searching for users:", error);
+                        }
+                    }
+                });
+            
+        
+                function displayUsers(users) {
+           tableBody.innerHTML ="";
+            if (users.length > 0) {
+                users.forEach((user,index) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                       <td>${index+1}</td>
+                       <td>${user.fname}</td>
+                       <td>${user.lname}</td>
+                       <td>${user.ReturnedDocumentName}</td>
+                       <td>${user.mezgebkuter}</td>
+                       <td>${user.csoname}</td>
+                       <td>${user.DateReturned}</td>
+                       <td>${user.status}</td>
+               
+            `;
+            tableBody.appendChild(row);
+        });
+    } else {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td colspan="7"> search results not found.</td>`;
+                tableBody.appendChild(row);
+            }
+        }
+
+    </script> 
+</body>
+</html>
